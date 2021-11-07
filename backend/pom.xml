@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.5.6</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.gov.dataprev</groupId>
 	<artifactId>dsvendas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
 	<name>dsvendas</name>
 	<description>projeto do devsuperior</description>
 	<properties>
@@ -56,64 +54,15 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.wildfly.plugins</groupId>
-			<artifactId>wildfly-maven-plugin</artifactId>
-			<version>2.0.1.Final</version>
-		</dependency>
 	</dependencies>
 
 	<build>
-		<finalName>${project.artifactId}</finalName>
-
 		<plugins>
-
 			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<configuration>
-					<attachClasses>true</attachClasses>
-				</configuration>
-			</plugin>
-
 		</plugins>
 	</build>
-
-	<profiles>
-		<profile>
-			<id>jboss-deploy</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.wildfly.plugins</groupId>
-						<artifactId>wildfly-maven-plugin</artifactId>
-						<version>2.0.1.Final</version>
-						<configuration>
-							<port>9992</port>
-						</configuration>
-						<executions>
-							<execution>
-								<id>deploy</id>
-								<phase>package</phase>
-								<goals>
-									<goal>deploy</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
-
-
 
 </project>
